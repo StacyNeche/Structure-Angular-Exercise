@@ -1,0 +1,20 @@
+.bikes-list-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px;
+
+  &_header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.mat-table {
+  border: 1px solid #0000001F;
+  border-radius: 4px;
+  margin: 20px 0;
+}
+.mat-row:hover {
+  background-color: #FFF8E1;
+}

@@ -1,0 +1,63 @@
+<div class="bikes-list-container">
+    <div class="bikes-list-container_header">
+        <h1>Bikes</h1>
+        <button mat-flat-button color="accent">Add bike</button>
+    </div>
+    <mat-table [dataSource]="bikes">
+        <ng-container matColumnDef="photo">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let bike">
+                <app-bike-photo [src]="bike.image"></app-bike-photo>
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="model">
+            <mat-header-cell *matHeaderCellDef>Model</mat-header-cell>
+            <mat-cell *matCellDef="let bike">
+                {{bike.model}}
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="type">
+            <mat-header-cell *matHeaderCellDef>Type</mat-header-cell>
+            <mat-cell *matCellDef="let bike">
+                {{bike.type}}
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="rating">
+            <mat-header-cell *matHeaderCellDef>Rating</mat-header-cell>
+            <mat-cell *matCellDef="let bike">
+                {{bike.rating}}
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="price">
+            <mat-header-cell *matHeaderCellDef>Price</mat-header-cell>
+            <mat-cell *matCellDef="let bike">
+                {{bike.price |  currency:'CAD'}}
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="qty">
+            <mat-header-cell *matHeaderCellDef>Qty</mat-header-cell>
+            <mat-cell *matCellDef="let bike">
+                {{bike.qty}}
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="description">
+            <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+            <mat-cell *matCellDef="let bike">
+                {{bike.description}}
+            </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef></mat-header-cell>
+            <mat-cell *matCellDef="let bike">
+                <button mat-icon-button matTooltip="Edit" color="primary">
+                    <mat-icon>edit</mat-icon>
+                </button>
+                <button mat-icon-button matTooltip="Delete" color="primary" (click)="onDeleteBike(bike.id)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="bikeTableColumns; sticky:true"></mat-header-row>
+        <mat-row *matRowDef="let product; columns: bikeTableColumns;"></mat-row>
+    </mat-table>
+</div>

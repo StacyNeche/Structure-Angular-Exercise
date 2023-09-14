@@ -1,0 +1,1 @@
+export type BikeType = "Mountain" | "Road" | "Hybrid" | "Other"
