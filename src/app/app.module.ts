@@ -9,12 +9,19 @@ import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { BikePhotoComponent } from './bike-photo/bike-photo.component';
+import { AddOrUpdateBikeDialogComponent } from './add-or-update-bike-dialog/add-or-update-bike-dialog.component';
+import { MatDialogModule } from "@angular/material/dialog";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatInputModule } from "@angular/material/input";
+import { ReactiveFormsModule } from "@angular/forms";
+import { MatSelectModule } from "@angular/material/select";
 
 @NgModule({
   declarations: [
     AppComponent,
     BikesListComponent,
-    BikePhotoComponent
+    BikePhotoComponent,
+    AddOrUpdateBikeDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -22,8 +29,12 @@ import { BikePhotoComponent } from './bike-photo/bike-photo.component';
     MatTableModule,
     MatIconModule,
     MatButtonModule,
-    MatTooltipModule
-  ],
+    MatTooltipModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
+    MatSelectModule],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,55 @@
+<div mat-dialog-title>
+    <h1 >{{mode === 'add' ? 'Add a new bike': 'Edit bike' }}</h1>
+    <mat-icon matDialogClose>close</mat-icon>
+</div>
+<div mat-dialog-content>
+    <form class="bike-edit-form" [formGroup]="bikeForm">
+        <mat-form-field>
+            <mat-label>Model</mat-label>
+            <input matInput formControlName="model" maxlength="30">
+            <mat-error *ngIf="bikeForm.controls['model'].hasError('required')">
+                Model is required
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Type</mat-label>
+            <mat-select formControlName="type">
+                <mat-option *ngFor="let bikeType of bikeTypes" [value]="bikeType">
+                    {{bikeType}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Rating</mat-label>
+            <input matInput formControlName="rating" type="number" min="-5" max="5">
+            <mat-error *ngIf="bikeForm.controls['rating'].hasError('min') || bikeForm.controls['rating'].hasError('max')">
+                Rating should be from -5 to 5
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Price</mat-label>
+            <input matInput formControlName="price" type="number" min="0" step="any">
+            <mat-error *ngIf="bikeForm.controls['price'].hasError('min')">
+                Price should be greater or equal 0
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Qty</mat-label>
+            <input matInput formControlName="qty" type="number" min="1">
+            <mat-error *ngIf="bikeForm.controls['qty'].hasError('required')">
+               Qty is required
+            </mat-error>
+            <mat-error *ngIf="bikeForm.controls['qty'].hasError('min')">
+                Qty should be greater or equal 1
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Description</mat-label>
+            <textarea matInput formControlName="description" maxlength="120"></textarea>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button matDialogClose mat-flat-button >Cancel</button>
+    <button [matDialogClose]="getSubmitValue()" [disabled]="bikeForm.invalid || bikeForm.pristine" mat-flat-button color="primary">Submit</button>
+</div>

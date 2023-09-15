@@ -1,9 +1,9 @@
 <div class="bikes-list-container">
     <div class="bikes-list-container_header">
         <h1>Bikes</h1>
-        <button mat-flat-button color="accent">Add bike</button>
+        <button mat-flat-button color="accent" (click)="onAddNewBike()">Add bike</button>
     </div>
-    <mat-table [dataSource]="bikes">
+    <mat-table [dataSource]="bikesDataSource">
         <ng-container matColumnDef="photo">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let bike">
@@ -49,7 +49,7 @@
         <ng-container matColumnDef="actions">
             <mat-header-cell *matHeaderCellDef></mat-header-cell>
             <mat-cell *matCellDef="let bike">
-                <button mat-icon-button matTooltip="Edit" color="primary">
+                <button mat-icon-button matTooltip="Edit" color="primary" (click)="onEditBike(bike.id)">
                     <mat-icon>edit</mat-icon>
                 </button>
                 <button mat-icon-button matTooltip="Delete" color="primary" (click)="onDeleteBike(bike.id)">
