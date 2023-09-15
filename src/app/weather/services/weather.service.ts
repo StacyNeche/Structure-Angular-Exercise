@@ -15,18 +15,14 @@ export class WeatherService {
 
 	public getCurrentWeather(): Observable<IWeatherResponse> {
 		return from(this.tryGetCoordinates())
-			.pipe(map((coordinates: ICoordinates) => this.getWeatherHttpParams({
-				longitude: coordinates.longitude, latitude: coordinates.latitude
-			})),
-				switchMap((params: HttpParams) => this.httpClient.get<IWeatherResponse>(apiConfig.weatherURL, {
-				params
-			})));
-	}
-
-	private getWeatherHttpParams(coordinates: ICoordinates): HttpParams {
-		return new HttpParams().appendAll({
-			lat: coordinates.latitude, lon: coordinates.longitude
-		});
+			.pipe(
+				map((coordinates: ICoordinates) =>
+					new HttpParams().appendAll({
+						lat: coordinates.latitude,
+						lon: coordinates.longitude
+					})),
+				switchMap((params: HttpParams) =>
+					this.httpClient.get<IWeatherResponse>(apiConfig.weatherURL, {params})));
 	}
 
 	private tryGetCoordinates = async (): Promise<ICoordinates> => {

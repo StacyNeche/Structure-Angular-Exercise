@@ -15,7 +15,8 @@ export class BikesDataSource extends DataSource<IBike> {
 		return this._dataStream;
 	}
 
-	public disconnect() {}
+	public disconnect() {
+	}
 
 	public setData(data: IBike[]) {
 		this._dataStream.next(data);

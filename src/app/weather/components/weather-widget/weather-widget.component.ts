@@ -21,7 +21,6 @@ export class WeatherWidgetComponent implements OnInit {
 			.pipe(map(weatherViewFromWeatherResponse));
 
 		this.error$ = this.weather$
-			.pipe(ignoreElements(),
-				catchError(({message}) => of(message)))
+			.pipe(ignoreElements(), catchError(({message}) => of(message)))
 	}
 }

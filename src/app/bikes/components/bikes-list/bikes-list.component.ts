@@ -22,7 +22,10 @@ export class BikesListComponent implements OnInit, OnDestroy {
 	}
 
 	public ngOnInit(): void {
-		this.subscriptions.add(this.bikesService.bikes$.subscribe((bikes: IBike[]) => this.bikesDataSource.setData(bikes)));
+		this.subscriptions.add(
+			this.bikesService.bikes$
+			.subscribe((bikes: IBike[]) => this.bikesDataSource.setData(bikes)
+			));
 	}
 
 	public ngOnDestroy(): void {
@@ -39,7 +42,7 @@ export class BikesListComponent implements OnInit, OnDestroy {
 
 	public onEditBike(id: string): void {
 		// emulate real-life scenario: refresh bike's data before edit
-    const bike = this.bikesService.loadSingle(id);
+		const bike = this.bikesService.loadSingle(id);
 		this.addOrUpdateBikeDialogService.openDialog(bike);
 	}
 }

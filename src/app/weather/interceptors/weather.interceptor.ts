@@ -7,9 +7,9 @@ import { environment } from "../../../environments/environment";
 @Injectable()
 export class WeatherInterceptor implements HttpInterceptor {
 	public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-		if(req.url.includes(apiConfig.weatherURL)) {
-			 req = req.clone({
-				params: req.params.append('appid', environment.weatherApiKey)
+		if (req.url.includes(apiConfig.weatherURL)) {
+			req = req.clone({
+				params: req.params.append("appid", environment.weatherApiKey)
 			});
 		}
 

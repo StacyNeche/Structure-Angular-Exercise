@@ -10,7 +10,7 @@ export const weatherViewFromWeatherResponse = (response: IWeatherResponse): IWea
 		name: response.name,
 		temp: response?.main?.temp,
 		feelsLike: response?.main?.feels_like,
-		icon: weatherResponse?.icon ? apiConfig.weatherImagesURL.concat(`${weatherResponse?.icon}@2x.png`) : '',
+		icon: weatherResponse?.icon ? `${apiConfig.weatherImagesURL}${weatherResponse?.icon}@2x.png` : '',
 		main: weatherResponse?.main ?? '',
 		description: weatherResponse?.description ?? '',
 		humidity: response.main?.humidity,

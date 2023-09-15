@@ -1,6 +1,8 @@
 import { Injectable } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
-import { AddOrUpdateBikeDialogComponent } from "../components/add-or-update-bike-dialog/add-or-update-bike-dialog.component";
+import {
+	AddOrUpdateBikeDialogComponent
+} from "../components/add-or-update-bike-dialog/add-or-update-bike-dialog.component";
 import { IBike } from "../models/bike.model";
 import { filter } from "rxjs";
 import { BikesService } from "./bikes.service";
@@ -18,6 +20,7 @@ export class AddOrUpdateBikeDialogService {
 		});
 
 		dialogRef.afterClosed() // Any notification will complete the observable, no need to unsubscribe
-			.pipe(filter((bike: Partial<IBike>) => !!bike)).subscribe((bike: Partial<IBike>) => this.bikeService.addOrUpdate(bike));
+			.pipe(filter((bike: Partial<IBike>) => !!bike))
+			.subscribe((bike: Partial<IBike>) => this.bikeService.addOrUpdate(bike));
 	}
 }

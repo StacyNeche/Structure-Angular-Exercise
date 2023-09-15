@@ -1,5 +1,5 @@
 <div mat-dialog-title>
-    <h1 >{{mode === 'add' ? 'Add a new bike': 'Edit bike' }}</h1>
+    <h1>{{mode === 'add' ? 'Add a new bike' : 'Edit bike' }}</h1>
     <mat-icon matDialogClose>close</mat-icon>
 </div>
 <div mat-dialog-content>
@@ -22,7 +22,8 @@
         <mat-form-field>
             <mat-label>Rating</mat-label>
             <input matInput formControlName="rating" type="number" min="-5" max="5">
-            <mat-error *ngIf="bikeForm.controls['rating'].hasError('min') || bikeForm.controls['rating'].hasError('max')">
+            <mat-error *ngIf="bikeForm.controls['rating'].hasError('min')
+                            || bikeForm.controls['rating'].hasError('max')">
                 Rating should be from -5 to 5
             </mat-error>
         </mat-form-field>
@@ -37,7 +38,7 @@
             <mat-label>Qty</mat-label>
             <input matInput formControlName="qty" type="number" min="1">
             <mat-error *ngIf="bikeForm.controls['qty'].hasError('required')">
-               Qty is required
+                Qty is required
             </mat-error>
             <mat-error *ngIf="bikeForm.controls['qty'].hasError('min')">
                 Qty should be greater or equal 1
@@ -50,6 +51,10 @@
     </form>
 </div>
 <div mat-dialog-actions>
-    <button matDialogClose mat-flat-button >Cancel</button>
-    <button [matDialogClose]="getSubmitValue()" [disabled]="bikeForm.invalid || bikeForm.pristine" mat-flat-button color="primary">Submit</button>
+    <button matDialogClose mat-flat-button>Cancel</button>
+    <button [matDialogClose]="getSubmitValue()"
+            [disabled]="bikeForm.invalid || bikeForm.pristine"
+            mat-flat-button color="primary">
+        Submit
+    </button>
 </div>
