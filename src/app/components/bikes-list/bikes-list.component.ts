@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from "@angular/core";
 import { Subscription } from "rxjs";
-import { BikesService } from "../services/bikes.service";
-import { IBike } from "../models/bike.model";
-import { AddOrUpdateBikeDialogService } from "../services/add-or-update-bike-dialog.service";
-import { BikesDataSource } from "../models/bikes-data.source";
+import { BikesService } from "../../services/bikes.service";
+import { IBike } from "../../models/bike.model";
+import { AddOrUpdateBikeDialogService } from "../../services/add-or-update-bike-dialog.service";
+import { BikesDataSource } from "../../models/bikes-data.source";
 
 @Component({
 	selector: "app-bikes-list",

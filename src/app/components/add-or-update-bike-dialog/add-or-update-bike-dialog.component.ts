@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, OnInit } from "@angular/core";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { IBike } from "../models/bike.model";
-import { BikeType } from "../models/bike.type";
+import { IBike } from "../../models/bike.model";
+import { BikeType } from "../../models/bike.type";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({

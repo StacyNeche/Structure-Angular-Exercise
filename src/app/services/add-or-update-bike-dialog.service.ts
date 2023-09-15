@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { MatDialog } from "@angular/material/dialog";
-import { AddOrUpdateBikeDialogComponent } from "../add-or-update-bike-dialog/add-or-update-bike-dialog.component";
+import { AddOrUpdateBikeDialogComponent } from "../components/add-or-update-bike-dialog/add-or-update-bike-dialog.component";
 import { IBike } from "../models/bike.model";
 import { filter } from "rxjs";
 import { BikesService } from "./bikes.service";
