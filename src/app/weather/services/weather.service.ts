@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from "@angular/common/http";
 import { from, map, Observable, switchMap } from "rxjs";
 import { IWeatherResponse } from "../models/weather-response.model";
 import { ICoordinates } from "../models/coordinates.model";
-import { apiConfig } from "../../api.config";
+import { apiConfig } from "../../../api.config";
 
 @Injectable({
 	providedIn: "root"

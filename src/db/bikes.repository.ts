@@ -1,4 +1,4 @@
-import { IBike } from "../app/models/bike.model";
+import { IBike } from "../app/bikes/models/bike.model";
 
 export const BIKES: IBike[] = [
 		{

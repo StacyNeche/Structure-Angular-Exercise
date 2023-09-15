@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { IBike } from "../models/bike.model";
-import { BIKES } from "../../db/bikes.repository";
+import { BIKES } from "../../../db/bikes.repository";
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
