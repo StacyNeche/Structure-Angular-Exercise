@@ -1,8 +1,17 @@
 .bike-image {
-  width: 170px;
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  min-height: 110px;
 }
 
 .material-icons {
-  font-size: 100px;
+  transform: scale(4);
   color: #0000001F;
 }

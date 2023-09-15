@@ -1,5 +1,7 @@
 <img class="bike-image" *ngIf="imageFound; else noImageFound" src="{{src}}" loading="lazy" (error)="onLoadImageError()">
 
 <ng-template #noImageFound>
-    <mat-icon>pedal_bike</mat-icon>
+    <div class="icon-container">
+        <mat-icon>pedal_bike</mat-icon>
+    </div>
 </ng-template>

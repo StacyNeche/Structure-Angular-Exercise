@@ -4,16 +4,35 @@
   flex-direction: column;
   margin: 20px;
 
-  &_header{
+  &_header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    &-text {
+      margin: 0;
+    }
   }
 }
+
 .mat-table {
   border: 1px solid #0000001F;
   border-radius: 4px;
   margin: 20px 0;
 }
+
 .mat-row:hover {
   background-color: #FFF8E1;
+}
+.mat-header-cell {
+  display: flex;
+  justify-content: center;
+}
+
+.mat-cell {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  margin: 0;
+  text-align: center;
 }
