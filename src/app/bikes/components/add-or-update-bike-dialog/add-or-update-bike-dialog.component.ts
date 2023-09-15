@@ -28,6 +28,7 @@ export class AddOrUpdateBikeDialogComponent implements OnInit {
 	public getSubmitValue(): Partial<IBike> {
 		return {
 			id: this.bike?.id,
+			image: this.bike?.image,
 			...this.bikeForm.getRawValue()
 		}
 	}

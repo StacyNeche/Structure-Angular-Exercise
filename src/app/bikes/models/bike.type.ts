@@ -1,1 +1,1 @@
-export type BikeType = "Mountain" | "Road" | "Hybrid" | "Other"
+export type BikeType = "Mountain" | "Road" | "Hybrid" | "Other";
