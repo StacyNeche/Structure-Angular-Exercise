@@ -15,16 +15,21 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatSelectModule } from "@angular/material/select";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
+import { WeatherInterceptor } from "./interceptors/WeatherInterceptor";
+import { WeatherWidgetComponent } from './components/weather-widget/weather-widget.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BikesListComponent,
     BikePhotoComponent,
-    AddOrUpdateBikeDialogComponent
+    AddOrUpdateBikeDialogComponent,
+    WeatherWidgetComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule ,
     NoopAnimationsModule,
     MatTableModule,
     MatIconModule,
@@ -35,7 +40,13 @@ import { MatSelectModule } from "@angular/material/select";
     MatInputModule,
     ReactiveFormsModule,
     MatSelectModule],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: WeatherInterceptor,
+      multi: true
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

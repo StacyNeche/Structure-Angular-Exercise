@@ -1,0 +1,43 @@
+<div *ngIf="weather$|async as weather" class="widget-container">
+    <div class="info-section">
+        <div class="primary-info">
+            <mat-icon>location_on</mat-icon>
+            {{weather.name}}
+        </div>
+        <div class="secondary-info">
+            {{weather.dt | date:'MMMM d' }}
+        </div>
+    </div>
+    <div class="info-section">
+        <div class="primary-info">
+            <mat-icon>device_thermostat</mat-icon>
+            {{weather.temp}}
+            <span>&#8490;</span>
+        </div>
+        <div class="secondary-info">
+            <p>Feels like {{weather.feelsLike}}
+                <span>&#8490;</span>
+            </p>
+        </div>
+    </div>
+    <div class="secondary-info">
+        <img class="weather-icon" [src]="weather.icon" [alt]="weather.description" [matTooltip]="weather.main">
+    </div>
+    <div class="info-section primary-info">
+        <div>
+            <mat-icon>water_drop</mat-icon>
+            {{weather.humidity}}
+            <span>&percnt;</span>
+        </div>
+        <div>
+            <mat-icon>air</mat-icon>
+            {{weather.windSpeed }}
+            <span>m/h</span>
+        </div>
+    </div>
+</div>
+
+<div class="weather-error-container" *ngIf="error$ | async as error">
+    <mat-icon color="primary">info</mat-icon>
+    {{error}}
+</div>
